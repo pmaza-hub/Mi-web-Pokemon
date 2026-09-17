@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Pokémon Agua | Catálogo</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&display=swap"
+        rel="stylesheet"
+    >
+
+    <link rel="stylesheet" href="../Pokemon/Style.CSS">
+</head>
+
+<body>
+
+    <!-- ==========================================
+         BURBUJAS DEL FONDO
+    =========================================== -->
+
+    <div class="bubbles" aria-hidden="true">
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+    </div>
+
+
+    <!-- ==========================================
+         NAVBAR
+    =========================================== -->
+
+    <header class="navbar">
+
+        <a href="#" class="logo">
+            <span class="logo-icon">💧</span>
+            <span>Pokémon <strong>Agua</strong></span>
+        </a>
+
+        <nav>
+            <a href="#inicio">Inicio</a>
+            <a href="#catalogo">Catálogo</a>
+
+            <button id="openSearch" class="nav-search">
+                <span>⌕</span>
+                Buscar
+            </button>
+        </nav>
+
+    </header>
+
+
+    <!-- ==========================================
+         HERO
+    =========================================== -->
+
+    <main>
+
+        <section id="inicio" class="hero">
+
+            <div class="hero-content">
+
+                <span class="hero-badge">
+                    ◆ CATÁLOGO ACUÁTICO
+                </span>
+
+                <h1>
+                    Pokémon de
+                    <span>Tipo Agua</span>
+                </h1>
+
+                <p>
+                    Explora, conoce y descubre la fuerza
+                    de los Pokémon que dominan el océano.
+                </p>
+
+                <div class="hero-buttons">
+
+                    <a href="#catalogo" class="primary-button">
+                        Explorar Pokémon
+                        <span>→</span>
+                    </a>
+
+                    <button id="heroSearch" class="secondary-button">
+                        Buscar Pokémon
+                    </button>
+
+                </div>
+
+            </div>
+
+            <div class="hero-decoration">
+                <div class="water-ring"></div>
+                <div class="water-ring ring-two"></div>
+                <div class="hero-drop">💧</div>
+            </div>
+
+            <div class="wave wave-one"></div>
+            <div class="wave wave-two"></div>
+
+        </section>
+
+
+        <!-- ==========================================
+             CATÁLOGO
+        =========================================== -->
+
+        <section id="catalogo" class="catalog">
+
+            <div class="section-heading">
+
+                <span>
+                    ◆ DESCUBRE EL OCÉANO
+                </span>
+
+                <h2>
+                    Catálogo Pokémon
+                </h2>
+
+                <p>
+                    Encuentra información sobre tus Pokémon
+                    de tipo Agua favoritos.
+                </p>
+
+            </div>
+
+
+            <!-- CONTROLES -->
+
+            <div class="catalog-controls">
+
+                <button
+                    id="catalogSearch"
+                    class="control-button"
+                >
+                    <span>⌕</span>
+                    Buscar
+                </button>
+
+                <button
+                    id="filterButton"
+                    class="control-button"
+                >
+                    <span>☰</span>
+                    Filtrar
+                </button>
+
+            </div>
+
+
+            <!-- BUSCADOR -->
+
+            <div id="searchPanel" class="search-panel hidden">
+
+                <div class="search-box">
+
+                    <span>⌕</span>
+
+                    <input
+                        type="text"
+                        id="searchInput"
+                        placeholder="Buscar Pokémon..."
+                        autocomplete="off"
+                    >
+
+                    <button id="clearSearch">
+                        ×
+                    </button>
+
+                </div>
+
+            </div>
+
+
+            <!-- FILTROS -->
+
+            <div id="filterPanel" class="filter-panel hidden">
+
+                <button
+                    class="filter-option active"
+                    data-filter="all"
+                >
+                    Todos
+                </button>
+
+                <button
+                    class="filter-option"
+                    data-filter="starter"
+                >
+                    Iniciales
+                </button>
+
+                <button
+                    class="filter-option"
+                    data-filter="evolution"
+                >
+                    Evoluciones
+                </button>
+
+                <button
+                    class="filter-option"
+                    data-filter="legendary"
+                >
+                    Legendarios
+                </button>
+
+            </div>
+
+
+            <p id="catalogCounter" class="catalog-counter">
+                Mostrando 12 Pokémon
+            </p>
+
+
+            <!-- CARRUSEL -->
+
+            <div class="carousel">
+
+                <button
+                    id="prevButton"
+                    class="carousel-arrow arrow-left"
+                    aria-label="Pokémon anterior"
+                >
+                    ‹
+                </button>
+
+
+                <div class="carousel-window">
+
+                    <div
+                        id="pokemonTrack"
+                        class="carousel-track"
+                    ></div>
+
+                </div>
+
+
+                <button
+                    id="nextButton"
+                    class="carousel-arrow arrow-right"
+                    aria-label="Pokémon siguiente"
+                >
+                    ›
+                </button>
+
+            </div>
+
+
+            <!-- INDICADORES -->
+
+            <div
+                id="carouselDots"
+                class="carousel-dots"
+            ></div>
+
+
+            <div
+                id="noResults"
+                class="no-results hidden"
+            >
+                <div>◌</div>
+
+                <h3>
+                    No encontramos Pokémon
+                </h3>
+
+                <p>
+                    Intenta buscar con otro nombre.
+                </p>
+            </div>
+
+        </section>
+
+
+        <!-- ==========================================
+             INFORMACIÓN
+        =========================================== -->
+
+        <section class="information">
+
+            <div class="information-card">
+
+                <div class="info-visual">
+
+                    <div class="info-circle"></div>
+
+                    <div class="info-water">
+                        💧
+                    </div>
+
+                </div>
+
+                <div class="info-content">
+
+                    <span>
+                        ◆ TIPO AGUA
+                    </span>
+
+                    <h2>
+                        El océano es su hogar.
+                    </h2>
+
+                    <p>
+                        Los Pokémon de tipo Agua destacan por
+                        su conexión con mares, ríos y lagos.
+                        Algunos poseen habilidades capaces de
+                        aprovechar el agua para combatir.
+                    </p>
+
+                    <div class="info-features">
+
+                        <div>
+                            <strong>12</strong>
+                            <span>Pokémon</span>
+                        </div>
+
+                        <div>
+                            <strong>4</strong>
+                            <span>Categorías</span>
+                        </div>
+
+                        <div>
+                            <strong>∞</strong>
+                            <span>Aventuras</span>
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <!-- ==========================================
+         MODAL
+    =========================================== -->
+
+    <div
+        id="pokemonModal"
+        class="modal hidden"
+    >
+
+        <div
+            id="modalBackground"
+            class="modal-background"
+        ></div>
+
+        <div class="modal-content">
+
+            <button
+                id="modalClose"
+                class="modal-close"
+                aria-label="Cerrar"
+            >
+                ×
+            </button>
+
+            <div id="modalContent"></div>
+
+        </div>
+
+    </div>
+
+
+    <!-- ==========================================
+         FOOTER
+    =========================================== -->
+
+    <footer>
+
+        <div class="footer-logo">
+            💧 Pokémon Agua
+        </div>
+
+        <p>
+            Explora el mundo de los Pokémon de tipo Agua.
+        </p>
+
+        <small>
+            Proyecto académico · HTML · CSS · JavaScript
+        </small>
+
+    </footer>
+
+
+    <script src="../Pokemon/script.JS"></script>
+
+</body>
+</html>
